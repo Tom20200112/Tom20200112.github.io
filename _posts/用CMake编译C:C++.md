@@ -1,0 +1,43 @@
+# 用CMake编译C/C++
+
+当要编译的.c或.cpp文件较多时，用CMake文件批量编译它们将比用gcc、clang等命令直接编译更方便。以我的某个冒泡排序程序为例，它的当前目录下的CMakeLists.txt文件内容如下：
+
+```cmake
+cmake_minimum_required(VERSION 3.0)
+project(bubblesort)
+
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 11)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+# ASan includes LSan, to use LSan stand-alone, replace it with -fsanitize=leak
+# Add -static-libasan to avoid error in VScode debug.
+# Add -O1 to coredump if used strdup which it not in C99.
+# set(COMMON_FLAGS "-O0 -Wall -Wextra -g -fsanitize=address -static-libasan -fno-omit-frame-pointer")
+set(COMMON_FLAGS "-O1 -Wall -Wextra -g -fno-omit-frame-pointer")
+
+set(CMAKE_C_FLAGS ${COMMON_FLAGS})
+set(CMAKE_CXX_FLAGS ${COMMON_FLAGS})
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/)
+
+add_executable(bubblesort bubble.cpp bubble2.cpp bubble1A.cpp bubble1B.cpp main.cpp ../UniPrint/print_int_array.cpp ../random/Shuffle.cpp)
+target_include_directories(bubblesort PUBLIC ../)
+# target_link_libraries(template x.a)
+
+```
+
+其中的
+
+```cmake
+add_executable(bubblesort bubble.cpp bubble2.cpp bubble1A.cpp bubble1B.cpp main.cpp ../UniPrint/print_int_array.cpp ../random/Shuffle.cpp)
+```
+
+这一行给出了编译用到的源文件和生成的可执行文件。为避免混乱，可在当前目录下新建build/目录，把MakeFile等文件都存在此目录下。cd进入build目录，键入命令
+
+```
+$ cmake ..
+```
+
+用上层目录的CMakeLists文件在当前目录生成MakeFile。之后就可以用make命令生成可执行文件了。
