@@ -1,0 +1,19 @@
+current directory: /Users/tomzhang/Tom20200112.github.io/vendor/bundle/ruby/3.2.0/gems/unf_ext-0.0.8.2/ext/unf_ext
+/Users/tomzhang/.rubies/ruby-3.2.1/bin/ruby -I /Users/tomzhang/.rubies/ruby-3.2.1/lib/ruby/3.2.0 extconf.rb
+checking for -lstdc++... yes
+creating Makefile
+
+current directory: /Users/tomzhang/Tom20200112.github.io/vendor/bundle/ruby/3.2.0/gems/unf_ext-0.0.8.2/ext/unf_ext
+make DESTDIR\= sitearchdir\=./.gem.20230323-25437-msfdrx sitelibdir\=./.gem.20230323-25437-msfdrx clean
+
+current directory: /Users/tomzhang/Tom20200112.github.io/vendor/bundle/ruby/3.2.0/gems/unf_ext-0.0.8.2/ext/unf_ext
+make DESTDIR\= sitearchdir\=./.gem.20230323-25437-msfdrx sitelibdir\=./.gem.20230323-25437-msfdrx
+compiling unf.cc
+linking shared-object unf_ext.bundle
+
+current directory: /Users/tomzhang/Tom20200112.github.io/vendor/bundle/ruby/3.2.0/gems/unf_ext-0.0.8.2/ext/unf_ext
+make DESTDIR\= sitearchdir\=./.gem.20230323-25437-msfdrx sitelibdir\=./.gem.20230323-25437-msfdrx install
+/usr/local/bin/ginstall -c -m 0755 unf_ext.bundle ./.gem.20230323-25437-msfdrx
+
+current directory: /Users/tomzhang/Tom20200112.github.io/vendor/bundle/ruby/3.2.0/gems/unf_ext-0.0.8.2/ext/unf_ext
+make DESTDIR\= sitearchdir\=./.gem.20230323-25437-msfdrx sitelibdir\=./.gem.20230323-25437-msfdrx clean
